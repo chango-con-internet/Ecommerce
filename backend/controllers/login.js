@@ -22,11 +22,19 @@ export const loginuser = async (req, res) => {
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
 
-   
-    
-
-    // Si todo está bien
-    res.status(200).json({ message: "Ingreso exitoso", usuario: usuario.nombre });
+    // ✅ DEVOLVER TODOS LOS DATOS DEL USUARIO
+    res.status(200).json({ 
+      message: "Ingreso exitoso", 
+      usuario: {
+        userId: usuario._id,           // O usuario.userId si lo tienes así
+        nombre: usuario.nombre,
+        apellido: usuario.apellido,
+        edad: usuario.edad,
+        telefono: usuario.telefono,
+        correo: usuario.correo,
+        password: usuario.password     // ⚠️ Opcional: mejor no enviar la contraseña
+      }
+    });
 
   } catch (error) {
     res.status(500).json({ message: "Error al iniciar sesión", error: error.message });

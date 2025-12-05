@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-50">
 
-<!-- HEADER (MISMO DEL LOGIN) -->
+<!-- HEADER -->
 <header class="bg-white shadow-lg sticky top-0 z-50">
     <nav class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
@@ -50,7 +50,7 @@
     <section class="w-full flex items-center justify-center">
 
         <!-- CARD REGISTRO -->
-        <div class="w-full max-w-md mx-20 bg-white rounded-2xl shadow-2xl border border-gray-200 px-10 py-10">
+        <div class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-gray-200 px-10 py-10">
 
             <!-- ICONO -->
             <div class="flex justify-center mb-5">
@@ -73,73 +73,77 @@
             </p>
 
             <!-- FORMULARIO -->
-            <form class="space-y-5">
+            <form id="registro-form" class="space-y-5">
 
-                <!-- NOMBRE -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
-                    <input type="text" placeholder="Juan Pérez"
-                           class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                <!-- NOMBRE Y APELLIDO -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre *</label>
+                        <input type="text" id="nombre" placeholder="Juan" required
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                    </div>
+                    <div>
+                        <label for="apellido" class="block text-sm font-medium text-gray-700 mb-1">Apellido *</label>
+                        <input type="text" id="apellido" placeholder="Pérez" required
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                    </div>
+                </div>
+
+                <!-- EDAD Y TELÉFONO -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="edad" class="block text-sm font-medium text-gray-700 mb-1">Edad *</label>
+                        <input type="number" id="edad" placeholder="25" min="18" max="120" required
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                        <p class="text-xs text-gray-500 mt-1">Debes ser mayor de 18 años</p>
+                    </div>
+                    <div>
+                        <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">Teléfono *</label>
+                        <input type="tel" id="telefono" placeholder="3001234567" required
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                        <p class="text-xs text-gray-500 mt-1">Mínimo 10 dígitos</p>
+                    </div>
                 </div>
 
                 <!-- CORREO -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
-                    <input type="email" placeholder="correo@gmail.com"
+                    <label for="correo" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico *</label>
+                    <input type="email" id="correo" placeholder="correo@ejemplo.com" required
                            class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
                 </div>
 
-                <!-- CONTRASEÑA -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
-                    <input type="password" placeholder="••••••••"
-                           class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
-                </div>
-
-                <!-- CONFIRMAR -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Confirmar contraseña</label>
-                    <input type="password" placeholder="••••••••"
-                           class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                <!-- CONTRASEÑA Y CONFIRMAR -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña *</label>
+                        <input type="password" id="password" placeholder="••••••••" minlength="6" required
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600">
+                        <p class="text-xs text-gray-500 mt-1">Mínimo 6 caracteres</p>
+                    </div>
+                    <div>
+                        <label for="confirmar-password" class="block text-sm font-medium text-gray-700 mb-1">Confirmar contraseña *</label>
+                        <input type="password" id="confirmar-password" placeholder="••••••••" required
+                               class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors">
+                        <p id="password-match-message" class="text-xs mt-1 hidden"></p>
+                    </div>
                 </div>
 
                 <!-- TERMINOS -->
                 <div class="flex items-center gap-2 text-sm">
-                    <input type="checkbox" class="h-4 w-4 text-blue-600">
-                    <p class="text-gray-700">Acepto los <a class="text-blue-600 hover:text-blue-700 font-medium" href="#">términos y condiciones</a></p>
+                    <input type="checkbox" id="terminos" class="h-4 w-4 text-blue-600" required>
+                    <label for="terminos" class="text-gray-700">
+                        Acepto los <a class="text-blue-600 hover:text-blue-700 font-medium" href="#">términos y condiciones</a>
+                    </label>
                 </div>
 
                 <!-- BOTÓN -->
-                <button type="submit"
-                        class="w-full py-2.5 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <button type="submit" id="registro-btn"
+                        class="w-full py-3 text-sm font-semibold text-white rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-[1.02]">
                     Crear cuenta
                 </button>
 
-                <!-- DIVIDER -->
-                <div class="relative my-5">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div class="relative flex justify-center text-xs">
-                        <span class="px-3 bg-white text-gray-500">O regístrate con</span>
-                    </div>
-                </div>
-
-                <!-- SOCIAL -->
-                <div class="grid grid-cols-2 gap-3 text-sm">
-                    <button type="button" class="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 hover:bg-gray-50">
-                        <img src="../img/svg/Google.svg" class="w-8" alt="">
-                        Google
-                    </button>
-
-                    <button type="button" class="flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 hover:bg-gray-50">
-                        <img src="../img/svg/Facebook.svg" class="w-8" alt="">
-                        Facebook
-                    </button>
-                </div>
-
                 <!-- YA TIENES CUENTA -->
-                <div class="text-center text-xs text-gray-500 mt-2">
+                <div class="text-center text-sm text-gray-500 mt-4">
                     ¿Ya tienes cuenta?
                     <a href="./login.html" class="text-blue-600 hover:text-blue-700 font-medium">Inicia sesión aquí</a>
                 </div>
@@ -151,12 +155,15 @@
     </section>
 </main>
 
-<!-- FOOTER (MISMO DEL LOGIN) -->
+<!-- FOOTER -->
 <footer class="bg-gray-900 text-white py-12 mt-10">
     <div class="max-w-7xl mx-auto px-4 text-gray-400 text-center">
         © 2025 TechStore Pro — Todos los derechos reservados.
     </div>
 </footer>
+
+<!-- SCRIPT -->
+<script src="./java/register.js"></script>
 
 </body>
 </html>
