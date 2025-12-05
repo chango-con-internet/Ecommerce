@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅📘 Pagina Cargada - Sistema Listo");
 
     // Creamos la constante de la API
-    const API_URL = "http://localhost:8081/api/login";
+    const API_URL = "https://ecommerce-4vw8.onrender.com/api/login";
 
     //enviar datos del formulario
     document.getElementById('login-form').addEventListener('submit', async function(e) {

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("✅📝 Página de Registro Cargada - Sistema Listo");
 
     // Constante de la API
-    const API_URL = "http://localhost:8081/api/user/register";
+    const API_URL = "https://ecommerce-4vw8.onrender.com/api/user/register";
 
     // Obtener el formulario
     const form = document.getElementById('registro-form');

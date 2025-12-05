@@ -3,7 +3,7 @@
 // ====================================================
 async function cargarproductos() {
     try {
-        const response = await fetch('http://localhost:8081/api/productos');
+        const response = await fetch('https://ecommerce-4vw8.onrender.com/api/productos');
         const productos = await response.json();
 
         const grid = document.getElementById('product-grid');

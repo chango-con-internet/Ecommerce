@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         console.log("🔄 Obteniendo perfil del servidor...");
         
-        const respuesta = await fetch("http://localhost:8081/api/perfil/obtener", {
+        const respuesta = await fetch("https://ecommerce-4vw8.onrender.com/api/perfil/obtener", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email: perfil.correo }) // ✅ Usar 'correo' según tu estructura
