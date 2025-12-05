@@ -188,7 +188,7 @@ const mailOptions = {
         <p>Ya puedes iniciar sesión con tu nueva contraseña.</p>
 
         <div style="text-align: center; margin: 30px 0;">
-            <a href="http://127.0.0.1:5500/src/pages/login.html"
+            <a href="http://127.0.0.1:5500../pages/login.html"
                 style="background: linear-gradient(to right, #4F46E5, #7C3AED);
                 color: white;
                 padding: 12px 30px;
